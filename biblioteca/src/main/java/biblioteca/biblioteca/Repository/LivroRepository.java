@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface LivroRepository extends JpaRepository<Livro, Long> {
-    public List<Livro> findByIsbnContainingIgnoreCase(Long isbn);
-    public List<Livro> findByTituloContainingIgnoreCase(String titulo);
+public interface LivroRepository extends JpaRepository<Livro, String> {
+    List<Livro> findByIsbnContaining(String isbn);
+    List<Livro> findByTituloContainingIgnoreCase(String titulo);
 }

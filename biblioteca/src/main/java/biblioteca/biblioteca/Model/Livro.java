@@ -16,21 +16,21 @@ import lombok.NoArgsConstructor;
 public class Livro {
     @Id
     @JsonProperty("isbn")
-    private Long isbn;
+    private String isbn;
 
-    @Column(name = "ds_titulo", nullable = false)
+    @Column(name = "titulo", nullable = false)
     @JsonProperty("titulo")
     private String titulo;
 
-    @Column(name = "fk_autor", nullable = false)
-    @JsonProperty("id_autor")
-    private String id_autor;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_autor", nullable = false)
+    private Autor autor;
 
-    @Column(name = "nu_ano", nullable = false)
+    @Column(name = "ano", nullable = false)
     @JsonProperty("ano")
     private String ano;
 
-    @Column(name = "cd_edicao", nullable = false)
+    @Column(name = "edicao", nullable = false)
     @JsonProperty("edicao")
     private String edicao;
 }
